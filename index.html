@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Audio Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="spaceCanvas"></canvas>
+    <div class="nebula nebula-one"></div>
+    <div class="nebula nebula-two"></div>
+
+    <main class="app">
+        <header class="header">
+            <div class="brand">
+                <div class="brand-icon">✦</div>
+                <div>
+                    <h1>Cosmic Player</h1>
+                    <p>YouTube Audio Visualizer</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="status">
+                    <span class="status-dot"></span>
+                    AUDIO MODE
+                </div>
+                <button id="fullscreenButton" class="fs-button" type="button" title="Layar penuh (F)" aria-label="Layar penuh">⛶</button>
+            </div>
+        </header>
+
+        <section class="player-card">
+            <div class="search-area">
+                <label for="youtubeLink">YouTube URL</label>
+                <div class="input-row">
+                    <input
+                        type="text"
+                        id="youtubeLink"
+                        placeholder="Tempel link YouTube di sini..."
+                        autocomplete="off"
+                    >
+                    <button id="loadButton" type="button">
+                        <span>＋</span> LOAD
+                    </button>
+                </div>
+                <div id="message" class="message"></div>
+            </div>
+
+            <div id="audioCard" class="audio-card">
+                <div class="cover-wrap">
+                    <div class="cover-glow"></div>
+                    <img id="coverImage" src="" alt="Cover video">
+                    <div id="coverPlaceholder" class="cover-placeholder">
+                        <span>✦</span>
+                        <small>NO TRACK</small>
+                    </div>
+                    <div class="cover-overlay"></div>
+
+                    <div id="visualizer" class="visualizer" aria-hidden="true"></div>
+                    <div class="frame-corner corner-tl"></div>
+                    <div class="frame-corner corner-tr"></div>
+                    <div class="frame-corner corner-bl"></div>
+                    <div class="frame-corner corner-br"></div>
+                </div>
+
+                <div class="track-section">
+                    <div class="track-top">
+                        <div class="track-text">
+                            <span class="eyebrow">NOW PLAYING</span>
+                            <h2 id="trackTitle">Belum ada lagu</h2>
+                            <p id="trackStatus">Masukkan link YouTube untuk memulai.</p>
+                        </div>
+                        <div class="playing-indicator">
+                            <i></i><i></i><i></i><i></i><i></i>
+                        </div>
+                    </div>
+
+                    <div class="progress-area">
+                        <span id="currentTime">0:00</span>
+                        <input id="progressBar" type="range" min="0" max="100" value="0" disabled>
+                        <span id="duration">0:00</span>
+                    </div>
+
+                    <div class="controls">
+                        <button id="backButton" type="button" title="Mundur 10 detik" disabled>↶ 10</button>
+                        <button id="pauseButton" class="pause-button" type="button" disabled>▶</button>
+                        <button id="forwardButton" type="button" title="Maju 10 detik" disabled>10 ↷</button>
+                        <button id="muteButton" type="button" title="Mute" disabled>🔊</button>
+                        <button id="repeatButton" type="button" title="Repeat: OFF (R)" disabled>🔁</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YouTube tetap digunakan sebagai sumber audio, tetapi videonya tidak ditampilkan. -->
+            <div id="youtubePlayerHost" class="youtube-audio-host" aria-hidden="true"></div>
+        </section>
+
+        <footer>
+            <span>✦</span> Explore the universe through sound <span>✦</span>
+        </footer>
+    </main>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+</body>
+</html>
